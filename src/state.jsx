@@ -10,13 +10,13 @@ const user = {
 };
 
 const users = {
-	0: { name: "Кристина", lastname: "Иванова", id: 4 },
-	1: { name: "Ксения", lastname: "Чижикова", id: 6 },
-	2: { name: "Диана", lastname: "Петрова", id: 7 },
-	3: { name: "Сергей", lastname: "Петров", id: 16 },
-	4: { name: "Александр", lastname: "Солнцев", id: 3 },
-  5: { name: "Светлана", lastname: "Петрова", id: 33 },
-	6: { name: "Александра", lastname: "Солнцева", id: 90 },
+	0: { name: "Кристина", lastname: "Иванова", id: 4, avatar: "https://source.unsplash.com/random/?user&w=200" },
+	1: { name: "Ксения", lastname: "Чижикова", id: 6, avatar: "https://source.unsplash.com/random/?user&w=200" },
+	2: { name: "Диана", lastname: "Петрова", id: 7, avatar: "https://source.unsplash.com/random/?user&w=200" },
+	3: { name: "Сергей", lastname: "Петров", id: 16, avatar: "https://source.unsplash.com/random/?user&w=200" },
+	4: { name: "Александр", lastname: "Солнцев", id: 3, avatar: "https://source.unsplash.com/random/?user&w=200" },
+  5: { name: "Светлана", lastname: "Петрова", id: 33, avatar: "https://source.unsplash.com/random/?user&w=200" },
+	6: { name: "Александра", lastname: "Солнцева", id: 90, avatar: "https://source.unsplash.com/random/?user&w=200" },
 };
 
 export function getUser(userId) {

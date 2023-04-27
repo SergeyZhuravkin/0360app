@@ -1,33 +1,42 @@
 import { NavLink, Route, Routes } from "react-router-dom";
-import './App.css';
+import "./App.css";
+import { Profile } from "./components/Profile";
+import { Messages } from "./components/Messages";
+import { Settings } from "./components/Settings";
+import { Friends } from "./components/Friends";
 
-const Profile = () => {
-  return <h1>Это страница с профилем</h1>;
-};
-const Messages = () => {
-  return <h1>Это страница с сообщениями</h1>;
-  };
-function App() {
-  return (
-    <div className="container mt-5">
-      <div className="row">
-        <div className="col-md-3">
-          <div className="nav flex-column nav-pills">           
-            <NavLink className="nav-link" to='profile'>Профиль</NavLink>
-            <NavLink className="nav-link" to='messages'>Сообщения</NavLink>
-            <NavLink className="nav-link" to='settings'>Настройки</NavLink>
-            <NavLink className="nav-link" to='friends'>Мои друзья</NavLink>
-          </div>
-        </div>
-        <div className="col-md-9">
-        <Routes>
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/profile" element={<Messages />} />
-        </Routes>
-        </div>
-      </div>
-    </div>
-  );
+function App(props) {
+	// console.log(props);
+	return (
+		<div className="container mt-5">
+			<div className="row">
+				<div className="col-md-3">
+					<div className="nav flex-column nav-pills">
+						<NavLink className="nav-link" to="profile">
+							Профиль
+						</NavLink>
+						<NavLink className="nav-link" to="messages">
+							Сообщения
+						</NavLink>
+						<NavLink className="nav-link" to="settings">
+							Настройки
+						</NavLink>
+						<NavLink className="nav-link" to="friends">
+							Мои друзья
+						</NavLink>
+					</div>
+				</div>
+				<div className="col-md-9">
+					<Routes>
+						<Route path="/profile/*" element={<Profile function={props.functions.key_getUser} />} />
+						<Route path="/messages" element={<Messages />} />
+						<Route path="/settings" element={<Settings />} />
+						<Route path="/friends" element={<Friends function={props.functions.key_getUsers} />} />
+					</Routes>
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default App;
