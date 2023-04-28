@@ -10,7 +10,7 @@ const products = [
   },
 
 	{
-    id: 1,
+    id: 2,
     name: 'Футболка отличная',
     href: '#',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg',
@@ -20,7 +20,7 @@ const products = [
   },
 
 	{
-    id: 1,
+    id: 3,
     name: 'Футболка белая',
     href: '#',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg',
@@ -30,7 +30,7 @@ const products = [
   },
 
 	{
-    id: 1,
+    id: 4,
     name: 'Майка',
     href: '#',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg',

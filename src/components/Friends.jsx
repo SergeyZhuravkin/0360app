@@ -1,9 +1,10 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 const TableRow = (props) => {
 	return (
 		<tr>
-			<th scope="row">{props.index + 1}</th>
+			<th scope="row">{props.id + 1}</th>
 				<td>
 					<NavLink to={"/profile/" + props.id} >{props.lastname} {props.name}</NavLink>
 				</td>
@@ -11,14 +12,26 @@ const TableRow = (props) => {
 	);
 };
 
-export const Friends = (props) => {
-	let users = props.function();
-	console.log(users);
-	let userRow = [];
-	let usersCount = Object.keys(users).length;
-	for (let i = 0; i < usersCount; i++) {
-		userRow.push(<TableRow id={users[i].id} index={i} key={i} name={users[i].name} lastname={users[i].lastname} />);
+export class Friends extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = { userRow: [] };
 	}
+
+	componentDidMount() {
+		this.props.function().then((users) => {
+			console.log(users);
+			let userRow = [];
+			let usersCount = users.length;
+			for (let i = 0; i < usersCount; i++) {
+				userRow.push(<TableRow id={users[i].id} key={i} name={users[i].name} lastname={users[i].lastname} />);
+			}
+			this.setState({userRow: userRow});
+		});
+	} 	
+
+render() {
 	return (
 		<div className="row">
 			<div className="col-8">
@@ -29,9 +42,12 @@ export const Friends = (props) => {
 							<th scope="col">Фамилия Имя</th>
 						</tr>
 					</thead>
-					<tbody>{userRow}</tbody>
+					<tbody>{this.state.userRow}</tbody>
 				</table>
 			</div>
 		</div>
 	);
-};
+}
+}
+
+		
